@@ -1,0 +1,304 @@
+﻿@model IEnumerable<KonusarakOgren.Models.Responses.Article>
+@{
+    ViewData["Title"] = "Create";
+
+}
+
+<div class="row exam-create-article">
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="articleTitle">Yazı</label>
+            <select class="form-control" id="articleTitle">
+                @foreach (var article in Model)
+                {
+                    <option value="@article.Content">@article.Title</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="exam-create-article-content" id="articleContent">
+            lorem   fjhdfk jhsdkjh fkjsdhf khsdkjfhsdkjfhk  sdjhfkjsdhfjksdhfjkhsdjfkhsdjkfsdkfhsdkjf kldsjflk jsdlkjf lskdjf lsd fjsdlfjsld jfljsd lfjsdkl jfklsdj fkljsd sdlfjsd lkfjsdlkjf klsdjfkl sjdlfkjs dlkjfl ksdj sdljf lsdjf ksjdfklj
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row question">
+    <div class="col-lg-12">
+        <input type="text" class="form-control question-input" placeholder="Soru 1" id="question1" />
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">A)</div>
+                <input type="text" class="form-control" id="question1A">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">B)</div>
+                <input type="text" class="form-control" id="question1B">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">C)</div>
+                <input type="text" class="form-control" id="question1C">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">D)</div>
+                <input type="text" class="form-control" id="question1D">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group correct-answer">
+            <select class="form-control" id="correctAnswer1">
+                <option value="0">Doğru Cevap Seç</option>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+                <option value="4">D</option>
+            </select>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row question">
+    <div class="col-lg-12">
+        <input type="text" class="form-control question-input" placeholder="Soru 2" id="question2" />
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">A)</div>
+                <input type="text" class="form-control" id="question2A">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">B)</div>
+                <input type="text" class="form-control" id="question2B">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">C)</div>
+                <input type="text" class="form-control" id="question2C">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">D)</div>
+                <input type="text" class="form-control" id="question2D">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group correct-answer">
+            <select class="form-control" id="correctAnswer2">
+                <option value="0">Doğru Cevap Seç</option>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+                <option value="4">D</option>
+            </select>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row question">
+    <div class="col-lg-12">
+        <input type="text" class="form-control question-input" placeholder="Soru 3" id="question3" />
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">A)</div>
+                <input type="text" class="form-control" id="question3A">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">B)</div>
+                <input type="text" class="form-control" id="question3B">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">C)</div>
+                <input type="text" class="form-control" id="question3C">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">D)</div>
+                <input type="text" class="form-control" id="question3D">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group correct-answer">
+            <select class="form-control" id="correctAnswer3">
+                <option value="0">Doğru Cevap Seç</option>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+                <option value="4">D</option>
+            </select>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row question">
+    <div class="col-lg-12">
+        <input type="text" class="form-control question-input" placeholder="Soru 4" id="question4" />
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">A)</div>
+                <input type="text" class="form-control" id="question4A">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">B)</div>
+                <input type="text" class="form-control" id="question4B">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">C)</div>
+                <input type="text" class="form-control" id="question4C">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">D)</div>
+                <input type="text" class="form-control" id="question4D">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group correct-answer">
+            <select class="form-control" id="correctAnswer4">
+                <option value="0">Doğru Cevap Seç</option>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+                <option value="4">D</option>
+            </select>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-lg-12 exam-button">
+        <button type="button" class="btn btn-success btn-lg" id="createExam">SINAV OLUŞTUR</button>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#articleTitle").on("change", function () {
+                var articleTitle = $("#articleTitle").val();
+                $("#articleContent").empty();
+                $("#articleContent").append(articleTitle);
+
+            });
+
+            $("#createExam").on("click", function () {
+
+                var questions = [];
+
+                var question1 = {
+                    Content: $("#question1").val(),
+                    OptionA: $("#question1A").val(),
+                    OptionB: $("#question1B").val(),
+                    OptionC: $("#question1C").val(),
+                    OptionD: $("#question1D").val(),
+                    CorrectAnswer: $('#correctAnswer1').find(":selected").text()
+                };
+
+                var question2 = {
+                    Content: $("#question2").val(),
+                    OptionA: $("#question2A").val(),
+                    OptionB: $("#question2B").val(),
+                    OptionC: $("#question2C").val(),
+                    OptionD: $("#question2D").val(),
+                    CorrectAnswer: $('#correctAnswer2').find(":selected").text()
+                };
+
+                var question3 = {
+                    Content: $("#question3").val(),
+                    OptionA: $("#question3A").val(),
+                    OptionB: $("#question3B").val(),
+                    OptionC: $("#question3C").val(),
+                    OptionD: $("#question3D").val(),
+                    CorrectAnswer: $('#correctAnswer3').find(":selected").text()
+                };
+
+                var question4 = {
+                    Content: $("#question4").val(),
+                    OptionA: $("#question4A").val(),
+                    OptionB: $("#question4B").val(),
+                    OptionC: $("#question4C").val(),
+                    OptionD: $("#question4D").val(),
+                    CorrectAnswer: $('#correctAnswer4').find(":selected").text()
+                };
+
+                questions.push(question1);
+                questions.push(question2);
+                questions.push(question3);
+                questions.push(question4);
+
+                var model = {
+                    ArticleTitle: $('#articleTitle').find(":selected").text(),
+                    ArticleContent: $("#articleContent").text(),
+                    Questions: questions
+                };
+
+                $.ajax({
+                    type: "POST",
+                    data: { model: model },
+                    url: "/Exam/Create",
+                    success: function (data) {
+                        
+                    }
+                });
+            });
+
+        });
+    </script>
+}

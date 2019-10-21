@@ -1,0 +1,155 @@
+﻿@model KonusarakOgren.Data.Entities.Exam
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="exam-index-header">@Model.Title</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @Model.Content
+    </div>
+</div>
+<div class="row">
+    @foreach (var question in Model.Questions)
+    {
+        <div class="col-md-6 exam-index-question">
+            <div>
+                1) @question.QuestionContent
+            </div>
+            @foreach (var option in question.Options)
+            {
+                if (option.OptionType == KonusarakOgren.Infrastructure.Enum.QuestionOptionsType.A)
+                {
+                    <div class="exam-index-answer" id="@option.Id" onclick="SelectAnswer(@question.Id, @option.Id);">
+                        A) @option.OptionContent
+                    </div>
+                }
+                if (option.OptionType == KonusarakOgren.Infrastructure.Enum.QuestionOptionsType.B)
+                {
+                    <div class="exam-index-answer" id="@option.Id" onclick="SelectAnswer(@question.Id,@option.Id);">
+                        B)  @option.OptionContent
+                    </div>
+                }
+                if (option.OptionType == KonusarakOgren.Infrastructure.Enum.QuestionOptionsType.C)
+                {
+                    <div class="exam-index-answer" id="@option.Id" onclick="SelectAnswer(@question.Id,@option.Id);">
+                        C)  @option.OptionContent
+                    </div>
+                }
+                if (option.OptionType == KonusarakOgren.Infrastructure.Enum.QuestionOptionsType.D)
+                {
+                    <div class="exam-index-answer" id="@option.Id" onclick="SelectAnswer(@question.Id,@option.Id);">
+                        D)  @option.OptionContent
+                    </div>
+                }
+            }
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-lg-12 exam-button">
+        <button onclick="save()" type="button" class="btn btn-success btn-lg">SINAVI TAMAMLA</button>
+    </div>
+</div>
+
+@section Scripts{ 
+<script type="text/javascript">
+    var answerList = [];
+
+    function SelectAnswer(questionId, answerId) {
+        var answerModel = {
+            questionId: questionId,
+            correctOptionId: answerId
+        };
+
+        var beforeChange = answerList.filter(x => x.questionId == answerModel.questionId);
+        if (beforeChange.length > 0) {
+            $("#" + beforeChange[0].correctOptionId).attr('style', 'background-color:#fff');
+        }
+
+        var filteredAnswers = answerList.filter(x => x.questionId != answerModel.questionId);
+
+        filteredAnswers.push(answerModel);
+
+        answerList = filteredAnswers;
+        for (var i = 0; i < answerList.length; i++) {
+            $("#" + answerList[i].correctOptionId).attr('style', 'background-color:#ccc');
+        }
+    }
+
+    function save() {
+        $.ajax({
+            type: "POST",
+            data: { request: answerList },
+            url: "/Exam/CheckQuestionAnswers",
+            success: function (response) {
+                for (var i = 0; i < response.length; i++) {
+                    console.log(response[i]);
+                    if (response[i].isCorrect) {
+                        $("#" + response[i].correctOptionId).attr('style', 'background-color:#0f0');
+                    } else {
+                        $("#" + response[i].correctOptionId).attr('style', 'background-color:#f00');
+                    }
+                }
+            }
+        });
+    }
+</script>
+}
+
+@*<div class="col-md-6 exam-index-question">
+        <div id="question2">
+            2) kawmdklmdkladmna askdlmaskldmasklmdakl aslkdmasklmdaklsmd
+        </div>
+        <div class="exam-index-answer" id="question2A">
+            A) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+
+        <div class="exam-index-answer" id="question2B">
+            B) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question2C">
+            C) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question2D">
+            D) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+    </div>
+    <div class="col-md-6 exam-index-question">
+        <div id="question3">
+            3) kawmdklmdkladmna askdlmaskldmasklmdakl aslkdmasklmdaklsmd
+        </div>
+        <div class="exam-index-answer" id="question3A">
+            A) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question3B">
+            B) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question3C">
+            C) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question3D">
+            D) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+    </div>
+    <div class="col-md-6 exam-index-question">
+        <div id="question4">
+            4) kawmdklmdkladmna askdlmaskldmasklmdakl aslkdmasklmdaklsmd
+        </div>
+        <div class="exam-index-answer" id="question4A">
+            A) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question4B">
+            B) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question4C">
+            C) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+        <div class="exam-index-answer" id="question4D">
+            D) sjdhs dmfbhsdf jdkfjkdhfj
+        </div>
+    </div>*@

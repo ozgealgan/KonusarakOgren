@@ -1,0 +1,28 @@
+﻿@model IEnumerable<KonusarakOgren.Data.Entities.Exam>
+@{
+    ViewData["Title"] = "List";
+    int i = 1;
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Tarih</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exam in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td><a href="@Url.Action("Index", "Exam", new { id = exam.Id })">@exam.Title</a></td>
+                <td>@exam.CreateDate</td>
+                <td><a href="@Url.Action("Delete", "Exam", new { id = exam.Id })">Sil</a></td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
